@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="description" content="CSS stickySwing" />
+  <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <script src="https://rawgithub.com/ai/autoprefixer-rails/master/vendor/autoprefixer.js"></script>
+  <title>CSS stickySwing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="content" id="top">
+      <div class="nav">
+        <div class="tray">
+          <div class="tray-inner">
+            <div class="item">first</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">icon</div>
+            <div class="item">last</div>
+          </div>
+        </div>
+      </div>
+      <div class="list">
+        <div style="position:relative;padding-bottom:30vh;">
+          <div class="header">
+            <div>Content</div>
+          </div>
+          <div class="item">Swing means as you scroll down position moves out of the scrollbox and conversely when you scroll up.</div>
+          <div class="item">SwingInto means the opposite, moving into view as scrolling proceeds.</div>
+          <div class="item">Once safari adds support for intersection Observer, refactor edge logic. Until then, using getBCR is not as simple for nested scrollers.</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="footer">
+            <div>footer</div>
+          </div>
+        </div>
+        <div style="position:relative">
+          <div class="header">
+            <div>Content</div>
+          </div>
+          <div class="item">Swing means as you scroll down position moves out of the scrollbox and conversely when you scroll up.</div>
+          <div class="item">SwingInto means the opposite, moving into view as scrolling proceeds.</div>
+          <div class="item">Once safari adds support for intersection Observer, refactor edge logic. Until then, using getBCR is not as simple for nested scrollers.</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="item">hello world</div>
+          <div class="footer">
+            <div>footer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fixed">
+    <div class="list">
+      <div class="header">
+        <div>Content</div>
+      </div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="item">hello world</div>
+      <div class="footer">
+        <div>footer</div>
+      </div>
+    </div>
+  </div>
+  <div class="nodes">
+    <div>
+
+    </div>
+  </div>
+  <div class="nodes">
+    <div>
+
+    </div>
+  </div>
+  <div class="swingly"><a href="#top">top</a></div>
+  <div class="swingler"></div>
+  <div class="swingle"></div>
+
+  <script src="../stickyswing.js"></script>
+  <script>
+    // example usage of plugin
+    document.addEventListener('DOMContentLoaded', function() {
+
+      var tray          = document.querySelector('.tray');
+      var contentHeader = document.querySelector('.content .header');
+      var contentFooter = document.querySelector('.content .footer');
+      var fixedHeader   = document.querySelector('.fixed .header');
+      var fixedFooter   = document.querySelector('.fixed .footer');
+      var wrap          = document.querySelector('.wrap');
+      var headers       = document.querySelectorAll('.content .header');
+      var footers       = document.querySelectorAll('.content .footer');
+      var nodes         = document.querySelectorAll('.nodes');
+
+      // though you could make multiple intances within
+      // a document there's no real reason to do so
+      var mySwingers = new PositionSwing('--sw');
+
+      if (mySwingers) {
+        mySwingers.add(tray,{along:true});
+        mySwingers.add(contentHeader,{property:'--myCapSwing',offset:40});
+        mySwingers.add(contentFooter,{bottom:true,offset:20});
+        mySwingers.add(fixedHeader,{into:true});
+        mySwingers.add(fixedFooter,{bottom:true,into:true});
+        mySwingers.add('--swingly',{height:80,scroll:wrap,offset:400});
+        mySwingers.add('--swingler',{height:160,scroll:wrap,offset:400});
+        mySwingers.add('--swingle',{height:40,scroll:wrap});
+    //  mySwingers.add(headers,{offset:40});
+    //  mySwingers.add(footers,{bottom:true,into:true});
+
+        window.addEventListener('resize',function(){
+          // recommend updating any elements that are set to swing 'along'
+          // when it's ancestors might have their size changed
+          // or when elements might start scrolling in different blocks
+          // but forcing an update of the swinging element might be useful
+          // to force position in other cases not mentioned,
+          // like swing dom nodes dimensions changing
+          mySwingers.update(tray);
+        });
+/*
+        setTimeout(function(){
+          mySwingers.remove(fixedHeader);
+          mySwingers.remove(fixedFooter);
+        },1000);
+*/
+      } else {
+        // do something when browser doesn't support this plugin
+        document.documentElement.classList.add('noSwingPosition');
+      }
+
+    });
+  </script>
+</body>
+</html>

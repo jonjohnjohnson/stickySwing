@@ -1,0 +1,261 @@
+@import url('https://necolas.github.io/normalize.css/7.0.0/normalize.css');
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  flex-shrink: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  background: #fc9;
+  overflow: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  z-index: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.list {
+  position: relative;
+}
+
+.item {
+  padding: 15px 12px;
+  border-bottom: 2px solid rgba(255,255,255,.125);
+}
+
+.header,
+.footer {
+  z-index: 1;
+  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  
+  //background: rgba(0,255,0,.2);
+}
+
+.header {
+  top: 0;
+  z-index: 9999;
+}
+
+.footer {
+  bottom: 0;
+}
+
+.footer > div {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #9cc;
+  will-change: transform;
+}
+
+.content .list div:first-child .footer {
+  padding-top: 10px;
+  margin-top: -10px;
+}
+
+.content .list div:first-child .footer div {
+  box-shadow: 0 -5px 5px rgba(0,0,0,.3);
+}
+
+.header > div {
+  height: 100px;
+  border-bottom: 40px solid #c99;
+  background: #9cc;
+  will-change: transform;
+}
+
+.fixed .header {
+  padding-bottom: 10px;
+  margin-bottom: -10px;
+}
+
+.fixed .header > div {
+  height: 40px;
+  border-bottom: none;
+  box-shadow: 0 5px 5px rgba(0,0,0,.3);
+}
+
+.fixed .footer > div {
+  height: 60px;
+  line-height: 60px;
+}
+
+.nav {
+  width: 50px;
+  
+  display: flex;
+  flex-flow: column;
+  position: relative;
+}
+
+.tray {
+  position: relative;
+  /* don't puch margin on this, put on parent if need */
+  margin: 0;
+  
+}
+
+.tray-inner {
+  will-change: transform;
+  background: #f9c;
+}
+
+.tray-inner .item:nth-child(n+9) {
+  // display: none;
+}
+
+.tray-inner .item:last-child {
+  // display: block;
+}
+
+
+.content {
+  margin-right: 50%;
+  display: flex;
+  padding-top: 40vh;
+  padding-bottom: 110vh;
+  
+  /* margin-bottom: 0;
+  margin-top: 0; */
+}
+
+.content .list {
+  flex: 1 1 auto;
+  
+  /* margin-top: calc((var(--swingler-perc) * 40px) + 40px); */
+}
+
+.fixed {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  height: calc(100vh - 240px);
+  left: 50%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  background: #c9c;
+  z-index: 1;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
+}
+
+.fixed .list {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /* padding-bottom: 0;
+  padding-top: 0; */
+}
+
+:root {
+  --swingly: 80px;
+  --swingly-height: 80px;
+  --swingly-perc: 1;
+  --swingler: 40px;
+  --swingler-perc: 1;
+  --swingle-height: 40px;
+}
+
+.swingly {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 75%;
+  background: orange;
+  height: 80px;
+  height: calc(var(--swingly-perc) * (var(--swingly-height) / 2) + (var(--swingly-height) / 2));
+  opacity: calc(var(--swingly-perc) + .25);
+  
+  opacity: calc(var(--swingly-perc));
+  z-index: calc((var(--swingly-perc) - 1));
+  
+}
+
+.swingler {
+  position: fixed;
+  top: 0;
+  right: 25%;
+  left: 50px;
+  background: #9c9;
+  height: 40px;
+  height: calc((var(--swingler-perc) * 40px) + 40px);
+}
+
+.content .header {
+  top: calc((var(--swingler-perc) * 40px) + 40px - 1px);
+}
+
+.swingle {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 50%;
+  background: #abc;
+  height: 40px;
+  -webkit-transform: translateY(calc(var(--swingle) * -1));
+          transform: translateY(calc(var(--swingle) * -1));
+  -webkit-transform: translateY(calc(var(--swingle-height) + var(--swingle)));
+          transform: translateY(calc(var(--swingle-height) + var(--swingle)));
+  /* can still do offsets by hand */
+  /* 
+  height: calc(20px + var(--swingle-height));
+  */
+}
+
+
+/*
+when using your own key, you can hook into it as a custom property on the root of the document, as well as the '*-height' of the swing
+*/
+.hanger {
+  -webkit-transform: translateY(calc(var(--myCapSwing)));
+          transform: translateY(calc(var(--myCapSwing)));
+  will-change: transform;
+  position: -webkit-sticky;
+  position: sticky;
+  top: calc(var(--myCapSwing-height) + 40px);
+  height: 2.5rem;
+  background: #00f;
+  
+  display: none;
+}
+
+/* 
+.content .header {
+  height: 100px;
+}
+ 
+.hanger {
+  transform: translateY(calc((var(--myCapSwing-height)) + (var(--myCapSwing) / 1.5) - var(--myCapSwing-height)));
+}
+
+.content .header > div {
+  background: #0ff;
+  transform: none !important;
+  height: calc((var(--myCapSwing-height)) + (var(--myCapSwing) / 1.5));
+  position: relative;
+}
+*/
