@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="description" content="CSS stickySwing" />
+  <meta name="description" content="scrollSwing" />
   <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <script src="https://rawgithub.com/ai/autoprefixer-rails/master/vendor/autoprefixer.js"></script>
-  <title>CSS stickySwing</title>
+  <title>scrollSwing</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="wrap">
-    <div class="content" id="top">
+    <div class="content">
       <div class="nav">
         <div class="tray">
           <div class="tray-inner">
@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-      <div class="list">
+      <div class="list" id="top">
         <div style="position:relative;padding-bottom:30vh;">
           <div class="header">
             <div>Content</div>
@@ -144,7 +144,7 @@
   <div class="swingler"></div>
   <div class="swingle"></div>
 
-  <script src="../stickyswing.js"></script>
+  <script src="../scrollSwing.js"></script>
   <script>
     // example usage of plugin
     document.addEventListener('DOMContentLoaded', function() {
@@ -161,7 +161,7 @@
 
       // though you could make multiple intances within
       // a document there's no real reason to do so
-      var mySwingers = new PositionSwing('--sw');
+      var mySwingers = new scrollSwing('--sw');
 
       if (mySwingers) {
         mySwingers.add(tray,{along:true});

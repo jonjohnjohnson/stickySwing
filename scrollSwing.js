@@ -1,6 +1,6 @@
-// Position:Swing plugin
+// scrollSwing plugin
 
-function PositionSwing(prefix) {
+function scrollSwing(prefix) {
  
   if (!(CSS.supports('position', 'sticky') || CSS.supports('position', '-webkit-sticky')) && !CSS.supports('--var', '0')) {
     return undefined;
